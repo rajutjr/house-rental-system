@@ -1,0 +1,30 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="{% static 'bharath.css' %}">
+    </head>
+    <body class="header">
+        <div class="container">
+            <h2>Login</h2>
+            <div class="form-container">
+                <form action="login" method="post">
+                    {%  csrf_token %}
+                    <label><b>Username</b></label>
+                    <input type="text" name="username" placeholder="Enter Username">
+                    <br>
+                    <label><b>Password</b></label>
+                    <input type="password" name="password" placeholder="Enter Password">
+                    <br>
+                   
+                    <input type="submit" class="register-btn" placeholder="submit">
+                </form>
+                {% for message in messages%}
+                     <h3>{{message}}</h3>
+                    {%endfor%}
+                    
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+{% load static %}
+<html>
+<head>
+    <title>Upload Market/Cold Storage Details</title>
+    <link rel="stylesheet" href="{% static 'bharath.css' %}">
+</head>
+
+<body class="header">
+    <div class="container">
+        
+        <div class="form-container">
+            <h2>Upload cold storage/Markets</h2>
+            <form action="" method="post"  enctype="multipart/form-data">
+            {%   csrf_token %}
+            {{ form.as_p }}
+                <button type="submit" >upload</button>
+            </form>
+           
+        </div>
+        <div>
+
+            {% for x in dests %}
+            <img src="{{x.UPLOAD_HOUSE_IMAGE.url }}" height="50%" width="50%">
+            <h3>{{x.OWNER_NAME}}</h3>
+            <h3>{{x.ADDRESS}}</h3>
+            <h2><a href="{{x.ENTER_LOCATION}}">click to view location </a></h2>
+            <hr>
+            
+            {% endfor %} 
+        
+             </div>
+        
+        
+
+    </div>
+
+
+    
+</body>
+
+
+
+</html>

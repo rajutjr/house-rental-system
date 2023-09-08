@@ -1,0 +1,23 @@
+<html>
+<head>
+    uploaded excel files details
+   <title> uploaded excel files details</title>
+</head>
+<body bgcolor="yellow">
+    <center><h1>uploaded excel files details</h1></center>
+    {% for i in excelall%}
+    <center>
+    <div>
+        NAME:{{i.name}}<br>
+        AGE:{{i.age}}<br>
+
+        ADDRESS:{{i.address}}<br>
+        GRADUATION:{{i.graduation}}<br>
+        TECHNOLOGIES:{{i.technologies}}<br>
+    </div>
+    <hr>
+    </center>
+    {% endfor%}
+</body>
+
+</html>

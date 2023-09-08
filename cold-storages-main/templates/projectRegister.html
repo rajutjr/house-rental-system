@@ -1,0 +1,49 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" href={% static 'updateprojectstyle.css' %}>
+    </head>
+    <body class="header">
+        <div class="container">
+            <h2>Register</h2>
+            <div class="form-container">
+                <form action="projectregister"  method="post">
+                    {%  csrf_token %}
+                    <label><b>Firstname</b></label>
+                    <input type="text" name="firstname" placeholder="firstname">
+                    <br>
+                    <label><b>Lastname</b></label>
+                    <input type="text" name="lastname" placeholder="lastname">
+                    <br>
+                    <label><b>Username</b></label>
+                    <input type="text" name="username" placeholder="username">
+                    <br>
+                    <label><b>Email</b></label>
+                    <input class="email" type="email" name="email" placeholder="email">
+                    <br>
+                    <label><b>password</b></label>
+                    <input type="password" name="password1" placeholder="password">
+                    <br>
+                    <br>
+                    <label><b> Confirm password</b></label>
+                    <input type="password" name="password2" placeholder="password">
+                    <br>
+                    Submit:<input type="submit">
+                    <div><center>
+                        <a href="login" class="register-btn">LOGIN</a>
+                        </center>
+                    </div>
+                    <br><br>
+                    {% for message in messages%}
+                     <h3>{{message}}</h3>
+                    {%endfor%}
+                    
+                </form>
+               
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page</title>
+        <link rel="stylesheet" href="{% static 'style1.css' %}">
+        <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    </head>
+    <body >
+        <div class="header">
+            
+            <nav id="navBar" class="hidemenu">
+                <a href="/">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.MU_rCC8lKECqPGmExbJ1dQHaE8&pid=Api&P=0&w=253&h=168" class="logo">
+                </a>
+                <ul class="nav-links">
+                  <li> <a href="#trending">
+                    Market places     
+                  </a>
+                    </li>
+                    <li><a href="uploaded">Explore</a></li>
+                    <li><a href="#exclusives">Cold stroage Places</a></li>
+                </ul>
+                <label for="cars">Choose a Market/storage:</label>
+
+          
+                <a href="projectregister" class="register-btn">Register Now</a>
+                <i class="fas fa-bars" onclick="togglebtn()"></i>
+            </nav>
+            <div class="container">
+               <h1><br/></h1>
+               
+            </div>
+        </div>
+        <div class="container">
+            <section id="exclusives">
+            <h2 class="sub-title" >Cold storage Places</h2>
+            <div class="exclusives">
+                {% for p in interface1 %}
+                
+                <div >
+                    
+                    
+                   
+                    
+                    <img class="raju" src="{{p.IMAGE.url}}">
+                    <h3>{{i.PLACE}}</h3>
+                    <h4><p>Starts @ ${{p.PRICE}}</p></h4>
+                    
+                </div>
+               {%   endfor %}
+            </div>        
+            </section>
+            <section id="trending">
+            <h2 class="sub-title">Market Places</h2>
+    
+            <div class="trending">
+
+                {% for i in interface2%}
+                <div>
+                    <img src="/media/{{IMAGE.url}}"> or {{i.IMAGE.url}}
+                    <h3>{{i.PLACE}}</h3>
+                    <h3>starts @ ${{i.PRICE}}</h3>
+                    
+                    
+
+                </div>
+               
+                {%  endfor %}
+            </div>
+            </section>
+            <div class="cta">
+                <h3>Share</h3>
+                <p>If you Like our page <br>Please Share.</p>
+                <a href="#" class="cta-btn">Know More</a>
+            </div>  
+            <h2 class="sub-title">Feedback</h2>
+            <div class="feedback">
+                <div>
+                    <img src="https://images.pexels.com/photos/513044/pexels-photo-513044.jpeg?auto=compress&cs=tinysrgb&w=600.JPG">
+                    <p>Popular Markets</p>
+                </div>
+                <div>
+                    <img src="https://images.pexels.com/photos/920570/pexels-photo-920570.jpeg?auto=compress&cs=tinysrgb&w=700.jpg">
+                    <p>Popular Markets 2</p>
+                </div>
+                <div>
+                    <img src="https://images.pexels.com/photos/175694/pexels-photo-175694.jpeg?auto=compress&cs=tinysrgb&w=600.jpg">
+                    <p>Popular Markets 3</p>
+                </div>
+            </div>  
+
+
+
+
+
+
+
+               
+                    
+        
+        <a href="#" class="contribute">Contribute</a>
+        <div class="about">
+            <h2>About website</h2>
+            <p>Hi this website allows you to Explore the apartments which can be occupied for your stay. This is made for the use of People for House Rental purpose</p>
+        </div>
+        
+
+            <br>
+            <br>
+            
+        
+
+            
+    
+
+        <div class="footer">
+            <a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://youtube.com/"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+            <hr>
+            <p></p>
+        </div>
+        </div>
+
+
+        <script>
+            var navBar=document.getElementById("navBar");
+            function togglebtn(){
+                navBar.classList.toggle("hidemenu");
+            }
+        </script>
+    </body>
+</html>

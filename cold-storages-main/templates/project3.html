@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Details</title>
+        <link rel="stylesheet" href="{% static 'style1.css' %}">
+        <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+        <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>    
+</head>
+    <body>
+        <nav id="navBar" class="navbar-white">
+            <a href="/">
+                <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/190767694.jpg?k=a57de774e2f0cc3aec83bc2c03940ac029e25254b5c263294d6f65a585b01a8a&o=" class="logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/'#exclusives'" >Popular Places</a></li>
+                <li><a href="uploaded">Explore</a></li>
+                <li><a href="/#trending" class="active">Online</a></li>
+            </ul>
+            <a href="register" class="register-btn1">UPLOAD HERE</a>
+            <i class="fas fa-bars" onclick="togglebtn()"></i>
+        </nav>
+
+        {% for j in dests%}
+        <section id="{{j.OWNER_NAME}}">
+        <div class="house-details">
+            <div class="house-title">
+                <h1>{{j.CHOOSE_TYPE}}</h1>
+                <div class="row">
+                    <div>
+                        <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            <span>245 Reviews</span>
+                    </div>
+                    <div>
+                    <p>Location: india</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="gallery-img-1"><img src="{{j.UPLOAD_IMAGE1.url}}"></div>
+                <div><img src="{{j.UPLOAD_IMAGE2.url}}"></div>
+                <div><img src="{{j.UPLOAD_IMAGE3.url}}"></div>
+                <div><img src="{{j.UPLOAD_IMAGE2.url}}"></div>
+                <div><img src="{{j.UPLOAD_IMAGE3.url}}"></div>
+            </div>    
+                
+          <h2>  <a href="{{j.ENTER_LOCATION}}"><i>View Location</i></a>   </h2>
+            <div class="small-details">
+                <span><h2>Entire {{j.CHOOSE_TYPE}} unit hosted by <h1>mr/mrs: {{j.OWNER_NAME}}</h1></h2></span>  
+                <p></p>
+                <h4>Rs:{{j.COST}}<span> /- per tonne</span></h4>
+            </div>
+            <hr class="line">
+            <form class="check-form">
+                <div>
+                    <label>Check-in</label>
+                    <input type="text" placeholder="Add Date">
+                </div>
+                <div>
+                    <label>Check-out</label>
+                    <input type="text" placeholder="Add Date">
+                </div>
+                <div class="guest-field">
+                    <label>Guest</label>
+                    <input type="text" placeholder="2 guest">
+                </div>
+                <button type="submit">Check Avalibility</button>
+            </form>
+            <ul class="details-list">
+                <li><i class="fas fa-home"></i>Enter to the {{j.CHOOSE_TYPE}}
+                    <span>You will have the entire flat for you</span>
+                </li>
+                <li><i class="fas fa-map-marker-alt"></i>Great Location
+                    <span>90% of recent guests gave the location a 5 star rating.</span>
+                </li>
+                <li><i class="fas fa-heart"></i>Great Check-in Experince
+                    <span>80% of recent guests gave the Check-in process a 5 star rating</span>
+                </li>
+            </ul>
+            <hr class="line">
+                <p class="home-desc">........Description</p>
+            <hr class="line">
+            <div class="map">
+                <h3>Location On Map</h3>
+                {{j.ADDRESS_URL}}
+                <b>Nad x Roads, Visakhapatnam, Andhra Pradesh, 530027.</b>
+                <p>Its like a home away from home.</p>
+            </div>
+            <hr class="line">
+            <div class="host">
+               <a href="#" ><img src="{{j.UPLOAD_IMAGE1.url}}" height="75"></a>
+                <div>
+                    <h2>Hosted by Someone</h2>
+                    <p><span>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </span>&nbsp; &nbsp; 245 reviews &nbsp; &nbsp; response rate 100% &nbsp; Response time: 60 min</p>
+                </div>
+            </div>
+            <a href="#" class="contact-host">Contact host</a>
+        </div>
+             
+       </section> 
+       <a href="/uploaded#{{j.ADDRESS}}" class="contact-host"><h2>BACK</h2></a>
+       
+            {%  endfor  %}
+
+        <div class="container">
+            <div class="footer">
+                <a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                <hr>
+                <p>Copyright @2022, Webpage</p>
+             </div>
+        </div>
+    </body>

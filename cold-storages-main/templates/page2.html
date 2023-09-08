@@ -1,0 +1,173 @@
+{%   load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Markets and Cold Storages</title>
+        <link rel="stylesheet" href="{% static 'projectstyle.css' %}">
+        
+        <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav id="navBar" class="navbar-white">
+            <a href="/">
+                <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/190767694.jpg?k=a57de774e2f0cc3aec83bc2c03940ac029e25254b5c263294d6f65a585b01a8a&o=" class="logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/page1#exclusives" >Cold Storage Places</a></li>
+                <li><a href="uploaded" class="active">Explore</a></li>
+                <li><a href="/page1#trending"> Market places</a></li>
+            </ul>
+            <form action="uploaded" method="get" class="nav-links">
+                
+        
+                <select type="text" name="district" id="district" >
+                    <option value="">--Please select district</option>
+                    <option value="vizag">vizag</option>
+                    <option value="krishna">krishna</option>
+                    <option value="east godavari">east godavari</option>
+                    <option value="chittor">chittor</option>
+                    <option value="nellore">nellore</option>
+                    <option value="srikakulam">srikakulam</option>
+                    <option value="guntur">guntur</option>
+                    <option value="kakinada">kakinada</option>
+                </select>    
+                
+                <select type="text" name="price" id="price" >
+                    <option value="">--Please choose an price--</option>
+                    <option value="10000">BELOW 10000</option>
+                    <option value="20000">BELOW 20000</option>
+                    <option value="40000">BELOW 40000</option>
+                    <option value="50000">BELOW 50000</option>
+                    <option value="100000">BELOW 100000</option>
+                    <option value="120000">BELOW 120000</option>
+                </select>    
+
+
+                
+           
+                <select name="area" id="area">
+                    <option value="">--Please choose an area--</option>
+                    <option value="market">market</option>
+                    <option value="cold storage">cold storage</option>
+                    
+                </select>
+                
+                <input type="submit" value="search"/>
+            </form>
+
+            <a href="register" class="register-btn1" align ="center">Upload Cold Storages/Markets</a>
+            <i class="fas fa-bars" onclick="togglebtn()"></i>
+        </nav>
+        <div class="container">
+            <div class="list-container">
+                <div class="left-col">
+                    <p>200+</p>
+                    <h1>Recommended Places</h1>
+                    {% for i in dests%}
+                    <section id="i.OWNER_NAME">
+                    <div class="house">
+                        <div class="house-img">
+                            <a href="/next#{{i.OWNER_NAME}}"><img src="{{i.UPLOAD_IMAGE1.url}}"></a>
+                        </div>
+                        <div class="house-info">
+                            <p>Private house</p>
+                            <h3><a href="{{i.ENTER_LOCATION}}">View Location</a></h3>
+                            <p>address:{{i.ADDRESS}}</p>
+                            <p>Owner:{{i.OWNER_NAME}}</p>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            <div class="house-price">
+                                <p>Price</p>
+                                <h4>Rs:{{i.COST}}<span> /- per tonne</span></h4>
+                                <h4>{{i.AREA}}</h4>
+                                <h3>{{i.STATE}}</h3>
+                            </div>
+
+
+                            <video controls="controls" width="70%" height="50%">
+                                <source src="/media/{{i.VIDEO}}" type="video/mp4" />
+                            </video>
+                            
+                            
+                            
+
+
+                        </div>
+                    </div>
+                    </section>
+                    {%empty %}
+                    NOT FOUND
+
+                    {% endfor %}
+                </div>
+                <div class="right-col">
+                    <div class="sidebar">
+                        <h2>Select Filters</h2>
+                        <h3>Property Market</h3>
+                        <form action="" method="post">
+                        <div class="filter">
+                            <input type="checkbox"> <p>Markets for raw materials</p> <span>(0)</span>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox"> <p>daily usage</p> <span>(0)</span>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox"> <p>reuseable materials</p> <span>(0)</span>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox"> <p>urban area markets</p> <span>(0)</span>
+                        </div>
+                        <h3>cold stroages</h3>
+                        <div class="filter">
+                            <input type="checkbox"> <p>cold storages for raw materials</p> <span>(0)</span>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox"> <p>daily usage</p> <span>(0)</span>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox"> <p>reuseable materials</p> <span>(0)</span>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox"> <p>urban area cold stroages</p> <span>(0)</span>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox"> <p></p> <span>(0)</span>
+                        </div>
+                        <div class="sidebar-link">
+                            <a href="#">View More</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+                <div class="pagination">
+                        <img src="images/arrow.png">
+                        <span class="current">1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>&middot; &middot; &middot; &middot; </span>
+                        <span>20</span>
+                        <img src="images/arrow.png" class="right-arrow">
+                </div>
+        <div class="footer">
+                <a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                <hr>
+                <p>Copyright @2022, Webpage.</p>
+        </div>
+        <script>
+            var navBar=document.getElementById("navBar");
+            function togglebtn(){
+                navBar.classList.toggle("hidemenu");
+            }
+        </script>
+    </body>
+    </html>
